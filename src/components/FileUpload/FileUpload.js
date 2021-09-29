@@ -1,17 +1,14 @@
-// import { FileUploadLogic } from './FileUploadLogic';
+import { FileUploadLogic } from './FileUploadLogic';
 
 const FileUpload = () => {
-  // const { handleInputchange, handleSubmit, uploadedFile } = FileUploadLogic();
+  const { handleInputchange, handleSubmit, fileURL } = FileUploadLogic();
   return (
     <>
-      <form>
-        {/* <input
-          type='hidden'
-          name='avatar_url'
-          id='avatar_url'
-          class='simple-file-upload'
-        /> */}
+      <form onSubmit={handleSubmit}>
+        <input type='file' onChange={handleInputchange} />
+        <input type='submit' value='Submit' />
       </form>
+      {fileURL && <img src={fileURL} alt={fileURL} />}
     </>
   );
 };
